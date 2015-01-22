@@ -7,6 +7,7 @@ header('Content-type: text/css');
 
 echo "
 .guwToolTip {
+  background:#fff;
   border-radius: 4px;
   box-shadow: 0 0 16px 0 #000;
   font-size: 14px;
@@ -18,6 +19,10 @@ echo "
   top: 28px;
   width: 250px;
   z-index: 9999;
+}
+
+.guwToolTip div {
+  border-color:#fff;
 }
 
 .guwToolTipPic {

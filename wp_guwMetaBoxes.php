@@ -101,12 +101,10 @@ function guw_meta_save( $post_id ) {
 		update_post_meta( $post_id, 'meta-textarea', $_POST[ 'meta-textarea' ] );
 	}
 
-	// Checks for input and saves if needed
+	//Checks for input and saves if needed
 	if( isset( $_POST[ 'meta-color' ] ) ) {
 		update_post_meta( $post_id, 'meta-color', $_POST[ 'meta-color' ] );
-	} else {
-		update_post_meta( $post_id, 'meta-color', '#fff');
-	}
+	} 
 
 	// Checks for input and saves if needed
 	if( isset( $_POST[ 'meta-image' ] ) ) {
@@ -154,14 +152,8 @@ add_action( 'admin_enqueue_scripts', 'guw_color_enqueue' );
  */
 function searchAndHover( $content ) {
 
-	// initialise $metaColor so it won't be transparent
-	if (empty($metaColor)) {
-		$metaColor = '#fff';
-	} else {
-		$metaColor = get_post_meta( get_the_ID(), 'meta-color', true);
-	}
-
 	// search for stuff and replace it with other stuff
+	$metaColor = get_post_meta( get_the_ID(), 'meta-color', true);
 	$metaPic = get_post_meta( get_the_ID(), 'meta-image', true);
 	$metaTextArea = get_post_meta( get_the_ID(), 'meta-textarea', true);
 	$metaText = get_post_meta( get_the_ID(), 'meta-text', true );
